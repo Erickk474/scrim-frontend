@@ -1,0 +1,13 @@
+.scrim-button {
+  font-weight: 500;
+  background: linear-gradient(331.28deg, $secondary 7.19%, $primary 57.77%);
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  border: 0;
+  transition: 0.3s;
+}
+
+.scrim-button:hover {
+  transform: scale(1.08, 1.08);
+  transition: 0.3s;
+}

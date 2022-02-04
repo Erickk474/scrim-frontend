@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+@import "./variables";
+
+@import "./assets/styles/input.styles.scss";
+@import "./assets/styles/button.styles.scss";
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.active-underline:hover {
+  text-decoration: underline;
+}

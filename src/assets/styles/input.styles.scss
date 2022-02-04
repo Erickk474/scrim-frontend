@@ -1,0 +1,60 @@
+.scrim-input {
+  &__group {
+    position: relative;
+    padding: 20px 0 0;
+    margin-top: 10px;
+  }
+
+  &__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid $gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ .scrim-input__label {
+      font-size: 1.3rem;
+      cursor: text;
+      top: 20px;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.5s;
+    font-size: 1rem;
+  }
+
+  &__field:focus {
+    ~ .scrim-input__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.5s;
+      font-size: 1rem;
+      color: $primary !important;
+      font-weight: 900;
+    }
+    padding-bottom: 6px;
+    border-width: 1px;
+    border-color: $primary;
+  }
+
+  &__field {
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+  }
+}

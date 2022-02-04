@@ -1,0 +1,55 @@
+@use "../../../variables" as c;
+
+.register {
+  display: flex;
+  height: 100%;
+
+  label {
+    color: c.$light-gray;
+  }
+
+  &__header {
+    display: flex;
+    padding: 3rem 0;
+    justify-content: end;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__show-side {
+    p {
+      font-weight: 500;
+      margin: 15%;
+      margin-top: 25%;
+      font-size: 52px;
+      line-height: 61px;
+      color: c.$white;
+    }
+
+    background: linear-gradient(
+      331.28deg,
+      c.$secondary 7.19%,
+      c.$primary 57.77%
+    );
+  }
+
+  &__form-side {
+    padding: 0 5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: c.$background;
+    height: auto;
+  }
+
+  &__buttons {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

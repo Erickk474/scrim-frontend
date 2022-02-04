@@ -1,0 +1,39 @@
+<div class="register">
+  <div class="register__show-side col-4">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque unde ipsum,
+      sapiente.
+    </p>
+  </div>
+  <div class="register__form-side col">
+    <div class="register__header col-12">
+      <label for="header">
+        Você já tem conta?
+        <button class="scrim-button" (click)="show()">Login</button>
+      </label>
+    </div>
+
+    <div class="register__form">
+      <div
+        class="scrim-input__group field col-5 mt-4"
+        *ngFor="let item of [].constructor(8)"
+      >
+        <input
+          class="scrim-input__field"
+          type="text"
+          placeholder="placeholder"
+          required
+        />
+        <label class="scrim-input__label">Nome</label>
+      </div>
+    </div>
+
+    <div class="register__buttons">
+      <button (click)="(show)" class="scrim-button">Login</button>
+
+      <label for="forgot-password" class="active-underline mt-3">
+        Forgot password?
+      </label>
+    </div>
+  </div>
+</div>
