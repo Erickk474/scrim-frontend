@@ -1,0 +1,66 @@
+@use "../../../variables" as c;
+
+.login {
+  display: flex;
+  height: 100%;
+
+  &__show-side {
+    padding-right: 2rem;
+    text-align: end;
+
+    background: linear-gradient(
+      331.28deg,
+      c.$secondary 7.19%,
+      c.$primary 57.77%
+    );
+  }
+
+  &__title {
+    font-weight: 500;
+    margin: 25% 0 10% 0;
+    font-size: 52px;
+    line-height: 61px;
+    color: c.$white;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    color: c.$white;
+    margin: 0;
+  }
+
+  label {
+    color: c.$light-gray;
+  }
+
+  &__space {
+    margin-left: 30px;
+  }
+
+  &__header {
+    display: flex;
+    padding: 3rem 0;
+    justify-content: end;
+  }
+
+  &__form {
+    padding: 8rem 6rem;
+  }
+
+  &__form-side {
+    padding: 0 5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: c.$background;
+    height: auto;
+  }
+
+  &__buttons {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

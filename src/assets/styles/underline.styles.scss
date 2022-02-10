@@ -1,0 +1,21 @@
+.active-underline {
+  position: relative;
+  cursor: pointer;
+}
+
+.active-underline::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: $light-gray;
+  transition: width 0.3s ease-out;
+}
+
+.active-underline:hover::before {
+  width: 100%;
+  left: 0;
+  right: auto;
+}

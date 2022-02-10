@@ -1,0 +1,87 @@
+@use "../../../variables" as c;
+
+.dropdown-menu {
+  img {
+    margin-right: 6px;
+    border-radius: 100%;
+  }
+}
+
+.dropdown-menu.show {
+  display: block;
+  border-radius: 10px;
+  margin: 14px -60px !important;
+  background-color: c.$light-gray;
+  color: c.$background-light;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.header {
+  display: flex;
+  background-color: c.$background-light;
+  padding: 1rem;
+  justify-content: space-between;
+
+  &__game {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .label {
+      cursor: pointer;
+      border: none;
+      margin: 0 10px;
+      background-color: c.$highlight;
+      padding: 4px;
+      border-radius: 8px;
+    }
+  }
+
+  &__search-bar {
+    input {
+      font-size: 16px;
+      font-weight: 19px;
+      color: c.$gray;
+      min-width: 300px;
+      background-color: c.$background;
+      outline: none;
+      border: none;
+      border-radius: 30px;
+      padding: 14px;
+      text-align: center;
+    }
+  }
+
+  &__profile {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    img {
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .label {
+      color: c.$white;
+      margin: 0;
+      padding: 4px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .arrow {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

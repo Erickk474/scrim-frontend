@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="header__game col-6">
+    <img src="{{ gameSelected.image }}" />
+    <button
+      class="header__game label"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      {{ gameSelected?.title }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li *ngFor="let game of userInfo.games">
+        <a class="dropdown-item" (click)="selectGame(game)">
+          <img src="{{ game.image }}" />
+          {{ game.title }}</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="header__search-bar">
+    <input type="text" placeholder="Pesquisar Nick" />
+  </div>
+  <div class="header__profile">
+    <img src="../../../assets/images/profile.jpeg" />
+    <p class="header__profile label">Erick</p>
+    <p class="header__profile label">"Kinho"</p>
+    <p class="header__profile label">Leite</p>
+    <img
+      class="header__profile arrow"
+      src="../../../assets/icons/arrow-down.svg"
+    />
+  </div>
+</div>

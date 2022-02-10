@@ -1,6 +1,6 @@
 <div class="register">
   <div class="register__show-side col-4">
-    <p>
+    <p (click)="fillAllFormFields()">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque unde ipsum,
       sapiente.
     </p>
@@ -9,29 +9,226 @@
     <div class="register__header col-12">
       <label for="header">
         Você já tem conta?
-        <button class="scrim-button register__space" (click)="show()">
+        <button class="scrim-button register__space" routerLink="/login">
           Login
         </button>
       </label>
     </div>
 
-    <div class="register__form">
-      <div
-        class="scrim-input__group field col-5 mt-4"
-        *ngFor="let item of [].constructor(8)"
-      >
+    <form class="register__form" [formGroup]="form">
+      <!-- FIRST_NAME -->
+      <div class="scrim-input__group field col-5 mt-4">
         <input
-          class="scrim-input__field"
+          class="scrim-input__field form-control"
           type="text"
-          placeholder="placeholder"
+          placeholder="firstName"
+          formControlName="firstName"
+          [ngClass]="{ 'is-invalid': checkValid('firstName') }"
           required
         />
-        <label class="scrim-input__label">Nome</label>
+        <label class="scrim-input__label">First Name</label>
+
+        <!-- MinLength validate -->
+        <label
+          *ngIf="checkField('firstName', 'minlength')"
+          class="text-danger col-12"
+        >
+          Must be as least {{ nameMinLength }} characters
+        </label>
+
+        <!-- MaxLength validate -->
+        <label
+          *ngIf="checkField('firstName', 'maxlength')"
+          class="text-danger col-12"
+        >
+          Must be no longer than {{ nameMaxLength }} characters
+        </label>
+
+        <!-- Number validate -->
+        <label
+          *ngIf="checkField('firstName', 'hasNumber')"
+          class="text-danger col-12"
+        >
+          Cannot contain number
+        </label>
       </div>
-    </div>
+
+      <!-- LAST_NAME -->
+      <div class="scrim-input__group field col-5 mt-4">
+        <input
+          class="scrim-input__field form-control"
+          type="text"
+          placeholder="lastName"
+          formControlName="lastName"
+          [ngClass]="{ 'is-invalid': checkValid('lastName') }"
+          required
+        />
+
+        <label class="scrim-input__label">Last Name</label>
+
+        <!-- MinLength validate -->
+        <label
+          *ngIf="checkField('lastName', 'minlength')"
+          class="text-danger col-12"
+        >
+          Must be as least {{ nameMinLength }} characters
+        </label>
+
+        <!-- MaxLength validate -->
+        <label
+          *ngIf="checkField('lastName', 'maxlength')"
+          class="text-danger col-12"
+        >
+          Must be no longer than {{ nameMaxLength }} characters
+        </label>
+
+        <!-- Number validate -->
+        <label
+          *ngIf="checkField('lastName', 'hasNumber')"
+          class="text-danger col-12"
+        >
+          Cannot contain number
+        </label>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="scrim-input__group field col-5 mt-4">
+        <input
+          class="scrim-input__field form-control"
+          type="text"
+          placeholder="email"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': checkValid('email') }"
+          required
+        />
+
+        <label class="scrim-input__label">E-mail</label>
+
+        <!-- Email validate -->
+        <label *ngIf="checkField('email', 'email')" class="text-danger">
+          Enter a valid email address!
+        </label>
+      </div>
+
+      <!-- NICKNAME -->
+      <div class="scrim-input__group field col-5 mt-4">
+        <input
+          class="scrim-input__field form-control"
+          type="text"
+          placeholder="nickname"
+          formControlName="nickname"
+          [ngClass]="{ 'is-invalid': checkValid('nickname') }"
+          required
+        />
+
+        <label class="scrim-input__label">Nickname</label>
+
+        <!-- MinLength validate -->
+        <label
+          *ngIf="checkField('nickname', 'minlength')"
+          class="text-danger col-12"
+        >
+          Must be as least {{ nickMinLength }} characters
+        </label>
+
+        <!-- MaxLength validate -->
+        <label
+          *ngIf="checkField('nickname', 'maxlength')"
+          class="text-danger col-12"
+        >
+          Must be no longer than {{ nickMaxLength }} characters
+        </label>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="scrim-input__group field col-5 mt-4">
+        <input
+          class="scrim-input__field form-control"
+          type="password"
+          placeholder="password"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': checkValid('password') }"
+          required
+        />
+
+        <label class="scrim-input__label">Password</label>
+
+        <!-- MinLength advice -->
+        <label
+          *ngIf="checkField('password', 'minlength')"
+          class="text-danger col-12"
+        >
+          <i class="material-icons">{{ "cancel" }} </i>
+          Must be at least {{ passwordMinLength }} characters!
+        </label>
+
+        <!-- Number advice -->
+        <label
+          *ngIf="checkField('password', 'hasNumber')"
+          class="text-danger col-12"
+        >
+          <i class="material-icons">{{ "cancel" }}</i>
+          Must contain at least 1 number!
+        </label>
+
+        <!-- CapitalCase advice -->
+        <label
+          *ngIf="checkField('password', 'hasCapitalCase')"
+          class="text-danger col-12"
+        >
+          <i class="material-icons">{{ "cancel" }}</i>
+          Must contain at least 1 in Capital Case!
+        </label>
+
+        <!-- SmallCase advice -->
+        <label
+          *ngIf="checkField('password', 'hasSmallCase')"
+          class="text-danger col-12"
+        >
+          <i class="material-icons">{{ "cancel" }}</i>
+          Must contain at least 1 Letter in Small Case!
+        </label>
+
+        <!-- SpecialCharacter advice -->
+        <label
+          *ngIf="checkField('password', 'hasSpecialCharacters')"
+          class="text-danger col-12"
+        >
+          <i class="material-icons">{{ "cancel" }}</i>
+          Must contain at least 1 Special Character!
+        </label>
+      </div>
+
+      <!-- CONFIRM_PASSWORD -->
+      <div class="scrim-input__group field col-5 mt-4">
+        <input
+          class="scrim-input__field form-control"
+          type="password"
+          placeholder="confirmPassword"
+          formControlName="confirmPassword"
+          [ngClass]="{ 'is-invalid': checkValid('confirmPassword') }"
+          required
+        />
+
+        <label class="scrim-input__label">Confirm password</label>
+
+        <label
+          *ngIf="checkField('confirmPassword', 'NoPasswordMatch')"
+          class="text-danger"
+        >
+          Password do not match
+        </label>
+      </div>
+    </form>
 
     <div class="register__buttons">
-      <button (click)="(show)" class="scrim-button">Login</button>
+      <button
+        class="scrim-button"
+        [disabled]="!form.valid"
+        (click)="createUser()"
+      >
+        Login
+      </button>
 
       <label for="forgot-password" class="active-underline mt-3">
         Forgot password?

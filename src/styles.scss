@@ -6,10 +6,20 @@
 
 @import "./assets/styles/input.styles.scss";
 @import "./assets/styles/button.styles.scss";
+@import "./assets/styles/underline.styles.scss";
 
 .material-icons {
   display: inline-flex;
   vertical-align: middle;
+}
+
+input:focus {
+  background-color: $background !important;
+  color: $light-gray !important;
+}
+
+.form-control {
+  border-radius: 0;
 }
 
 body,
@@ -17,9 +27,4 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-}
-
-.active-underline:hover {
-  cursor: pointer;
-  text-decoration: underline;
 }

@@ -1,1 +1,58 @@
-<p>login works!</p>
+<div class="login">
+  <div class="login__show-side col-4">
+    <p class="login__title">Get exclusive access to platform.</p>
+    <p class="login__subtitle">We're in the process of developing our online</p>
+    <p class="login__subtitle">We're in the process of developing our online</p>
+    <p class="login__subtitle">We're in the process of developing our online</p>
+    <p class="login__subtitle">We're in the process of developing our online</p>
+  </div>
+  <div class="login__form-side col">
+    <div class="login__header col-12">
+      <label for="header">
+        Ainda não tem conta?
+        <button class="scrim-button login__space" routerLink="/register">
+          Registre-se
+        </button>
+      </label>
+    </div>
+
+    <form class="login__form" [formGroup]="form">
+      <div class="scrim-input__group field col-12 mt-4">
+        <input
+          class="scrim-input__field form-control"
+          type="text"
+          placeholder="email"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': checkValid('email') }"
+          required
+        />
+
+        <label class="scrim-input__label">E-mail</label>
+
+        <label *ngIf="checkField('email', 'email')" class="text-danger">
+          Enter a valid email address!
+        </label>
+      </div>
+
+      <div class="scrim-input__group field col-12 mt-4">
+        <input
+          class="scrim-input__field"
+          type="password"
+          placeholder="password"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': checkValid('passowrd') }"
+          required
+        />
+        <label class="scrim-input__label">Password</label>
+      </div>
+    </form>
+
+    <div class="login__buttons">
+      <button class="scrim-button" [disabled]="!form.valid" (click)="authUser()">Login</button>
+
+      <label for="forgot-password" class="active-underline mt-3">
+        Forgot password?
+      </label>
+    </div>
+  </div>
+</div>
